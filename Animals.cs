@@ -17,9 +17,9 @@ class Animals {
         Isalive = isalive;
     }
     
-    // get-set used by constructor to check stuff about the inserted value, can use it to add a condition ( for example : if (value<0){don't});
+    // get-set used by constructor to check stuff about the inserted value, can use it to add a condition ( example : if (value<0){don't});
     // theyre the only way we can edit private variables, 
-    // why private ? so we can process the value we want to insert, preventing anyone to insert crap in it
+    // why making the first values private then? it's so we can process the value we want to insert, preventing anyone to insert crap directly in them..
     
     public String Name {
         get { return _name; }
