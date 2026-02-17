@@ -2,17 +2,22 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
+		//random debug from when i was lost, might be usefull sometimes
         Console.WriteLine("program.cs called!");
-        
-        
-        Variables.Init();
-        Console.WriteLine("nbr de tigres: " + Variables.annimaux["Tigre"]); 
-        Console.WriteLine("nbr de Poule: " + Variables.annimaux["Poule"]);
-        Console.WriteLine("nbr de Coq: " + Variables.annimaux["Coq"]);
-        Console.WriteLine("nbr de Aigle: " + Variables.annimaux["Aigle"]); 
-//nouriture
-        Console.WriteLine("nouriture:viande " + Variables.nouriture["Viande"]);
+
+
+
+		// create new Animals... (calling Public Animals in Animals.cs right >:3)	
+		Animals tiger = new Animals("Tiger",120,"male",false,false);
+		Animals chicken = new  Animals("Chicken",10,"female",false,false);
+		Animals eagle = new Animals("Eagle",15,"female",false,false);
+
+		// uses the objects we created: tiger,chicken..... and calling ShowInfos on it
+		tiger.ShowInfos();
+		chicken.ShowInfos();
+		eagle.ShowInfos();
+
     }
 }
