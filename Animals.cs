@@ -7,14 +7,16 @@ class Animals {
     private string _gender;
     private bool _ispregnant;
     private bool _isalive;   
+	private double _cost;
     
     // constructor (note to myself, it must have the same name as the class...)
-    public Animals(string name, int age, string gender, bool ispregnant, bool isalive) {
+    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost) {
         Name = name;
         Age = age;
         Gender = gender;
         Ispregnant = ispregnant;
         Isalive = isalive;
+		Cost = cost;
     }
     
     // get-set used by constructor to check stuff about the inserted value, can use it to add a condition ( example : if (value<0){don't});
@@ -47,11 +49,15 @@ class Animals {
         set { _isalive = value; }
     }
 
+	public double Cost {
+		get { return _cost; }
+		set { _cost = value; }
+	}
     
     // ShowInfos uses the infos stored in the "public bool "blabla" that get their values from the private variables on top :3
     public void ShowInfos()
     {
-        Console.WriteLine($"Animal : {Name},{Age},{Gender},{Ispregnant},{Isalive}");
+        Console.WriteLine($"Animal : {Name},age: {Age},genre: {Gender},is pregnant: {Ispregnant},is alive: {Isalive}, cost(monthly): {Cost}");
     }
     
 }
