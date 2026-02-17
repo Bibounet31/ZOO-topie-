@@ -21,8 +21,8 @@ class Program
 		tiger.ShowInfos();
 		chicken.ShowInfos();
 		eagle.ShowInfos();
-		
-		Console.WriteLine("")
+
+		Console.WriteLine("");
 		
 		///Food
 		viande.ShowInfos();
