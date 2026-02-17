@@ -7,10 +7,10 @@ class Animals {
     private string _gender;
     private bool _ispregnant;
     private bool _isalive;   
-	private int _cost;
+	private double _cost;
     
     // constructor (note to myself, it must have the same name as the class...)
-    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, int cost) {
+    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost) {
         Name = name;
         Age = age;
         Gender = gender;
@@ -49,7 +49,7 @@ class Animals {
         set { _isalive = value; }
     }
 
-	public int Cost {
+	public double Cost {
 		get { return _cost; }
 		set { _cost = value; }
 	}
