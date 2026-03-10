@@ -1,7 +1,7 @@
 class Bank
 {
     // declaring variables
-    public static Bank bankaccount = new Bank(1000);   
+    public static Bank bankaccount = new Bank(80000);   
     private int _money;
 
     //constructor
@@ -9,6 +9,15 @@ class Bank
         Money = money;
     }
 
+
+    public void AddMoney(int amount) {
+        _money = _money + amount;
+    }
+
+    public void RemoveMoney(int amount) {
+        _money = _money - amount;
+    }
+    
     
     
     public int Money {
@@ -19,7 +28,10 @@ class Bank
     
     
     public void ShowInfos() {
-        Console.WriteLine(Money);
+        Console.WriteLine($"{Money}€");
     }
+    
+    
+    
     
 }

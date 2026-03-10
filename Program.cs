@@ -46,13 +46,21 @@ class Program
 		    foreach (var food in Food.AllFoods)
 			    food.ShowInfos();
 	    }
+	    
+	    
+		//BANK
 
+	    //add money
+	    Bank.bankaccount.AddMoney(500); 
+	    //remove money
+	    Bank.bankaccount.RemoveMoney(200);
+	    //show available money
 	    Bank.bankaccount.ShowInfos();
 	    
 	    
 	    ///start menu....
 	    //Menu.Start();
-		
+
 
     }
 }

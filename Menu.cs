@@ -178,7 +178,7 @@ class Menu
             Console.WriteLine("6 - Retour menu principal");
             Console.Write("Choix : ");
 
-            string choix = Console.ReadLine();
+            string? choix = Console.ReadLine();
             switch (choix)
             
             {
