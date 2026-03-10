@@ -167,7 +167,7 @@ class Menu
 
     static void ModeFacile()
     {
-        Console.WriteLine("Mode difficile");
+        Console.WriteLine("Mode facile");
         Console.ReadLine();
     }
 
