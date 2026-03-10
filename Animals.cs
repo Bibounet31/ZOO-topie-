@@ -1,6 +1,10 @@
 using System; // needed for Console.stuff (WriteLine for example) 
 
 class Animals {
+	//store created animals!
+	public static List<Animals> AllAnimals = new List<Animals>();
+
+
     // declaring variables (_ since theyre private)
     private string _name;
     private int _age;
@@ -8,18 +12,22 @@ class Animals {
     private bool _ispregnant;
     private bool _isalive;   
 	private double _cost;
+	private string _ill;
     
     // constructor (note to myself, it must have the same name as the class...)
-    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost) {
+    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost, string ill) {
         Name = name;
         Age = age;
         Gender = gender;
         Ispregnant = ispregnant;
         Isalive = isalive;
 		Cost = cost;
+		Ill = ill;  
+
+		AllAnimals.Add(this);
     }
     
-    // get-set used by constructor to check stuff about the inserted value, can use it to add a condition ( example : if (value<0){don't});
+    // get-set used by constructor to check stuff about the inserted valude, can use it to add a condition ( example : if (value<0){don't});
     // theyre the only way we can edit private variables, 
     // why making the first values private then? it's so we can process the value we want to insert, preventing anyone to insert crap directly in them..
     
@@ -54,10 +62,15 @@ class Animals {
 		set { _cost = value; }
 	}
     
+	public string Ill {
+		get { return _ill; }
+		set { _ill = value; }
+}
+
     // ShowInfos uses the infos stored in the "public bool "blabla" that get their values from the private variables on top :3
     public void ShowInfos()
     {
-        Console.WriteLine($"Animal : {Name},age: {Age},genre: {Gender},is pregnant: {Ispregnant},is alive: {Isalive}, cost(monthly): {Cost}");
+        Console.WriteLine($"Animal : {Name},   age: {Age},    genre: {Gender},   is pregnant: {Ispregnant},   is alive: {Isalive},    cost(monthly): {Cost},    ill {Ill}");
     }
     
 }
