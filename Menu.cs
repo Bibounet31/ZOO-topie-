@@ -16,7 +16,7 @@ class Menu
             Console.WriteLine("4 - Quitté le jeu");
             Console.Write("Choix");
             
-            string choix = Console.ReadLine();
+            string? choix = Console.ReadLine();
             switch (choix)
             {
                 case "1":
@@ -57,7 +57,7 @@ class Menu
             Console.WriteLine("3 - Retour");
             Console.Write("Choix");
 
-            string choix = Console.ReadLine();
+            string? choix = Console.ReadLine();
             switch (choix)
             {
                 case "1":
@@ -93,7 +93,7 @@ class Menu
             Console.WriteLine("4 - Retour");
             Console.Write("Choix");
 
-            string choix = Console.ReadLine();
+            string? choix = Console.ReadLine();
             switch (choix)
             {
                 case "1":
@@ -133,7 +133,7 @@ class Menu
             Console.WriteLine("4 - retour");
             Console.Write("Choix");
 
-            string choix = Console.ReadLine();
+            string? choix = Console.ReadLine();
             switch (choix)
             {
                 case "1":
