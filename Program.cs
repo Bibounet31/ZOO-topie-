@@ -4,6 +4,9 @@ class Program
 {
     static void Main()
     {
+		///start menu....
+	    ///Menu.Start();
+	    
 		//random debug from when i was lost, might be usefull sometimes
         Console.WriteLine("program.cs called!");
 
@@ -14,7 +17,7 @@ class Program
 	    Animals eagle = new Animals("Eagle",15,"female",false,false,200);
 			
 	    // create new Food
-			Food viande = new Food("Viande",5,10.5);
+	    Food viande = new Food("Viande",5,10.5);
 
 		// uses the objects we created: tiger,chicken..... and calling ShowInfos on it
 		//Animals
