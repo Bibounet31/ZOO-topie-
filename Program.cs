@@ -47,9 +47,11 @@ class Program
 			    food.ShowInfos();
 	    }
 
-
+	    Bank.bankaccount.ShowInfos();
+	    
+	    
 	    ///start menu....
-	    Menu.Start();
+	    //Menu.Start();
 		
 
     }

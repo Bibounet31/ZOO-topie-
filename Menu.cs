@@ -175,7 +175,7 @@ class Menu
             Console.WriteLine("3 - Map zoo");
             Console.WriteLine("4 - Option");
             Console.WriteLine("5 - Retour");
-            Console.WriteLine("6 - Retour menu principal")
+            Console.WriteLine("6 - Retour menu principal");
             Console.Write("Choix : ");
 
             string choix = Console.ReadLine();
