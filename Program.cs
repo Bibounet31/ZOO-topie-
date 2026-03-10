@@ -10,10 +10,15 @@ class Program
 		//random debug from when i was lost, might be usefull sometimes
         Console.WriteLine("program.cs called!");
 		
+        
+        // init default values
         //init the number of animals at the start of the game
         var defaultTigers = 3;
         var defaultPandas = 2;
         var defaultLions  = 4;
+
+        var defaultmeat = 5;
+        var defaultseeds = 6;
         
 		// create new Animals... (calling Public Animals in Animals.cs right >:3)	
 		//name|age|gender|ispregnant|isalive|cost
@@ -32,18 +37,14 @@ class Program
 
 			
 	    // create new Food --    Name|qty|price
-	    Food viande = new Food("Viande",5,10.5);
+	    new Food("meat", defaultmeat, 200);
+	    new Food("seeds", defaultseeds, 200);
 
-		// uses the objects we created: tiger,chicken..... and calling ShowInfos on it
-		//Animals
-		//tiger.ShowInfos();
-		//chicken.ShowInfos();
-		//eagle.ShowInfos();
+	    foreach (var food in Food.AllFoods)
+		    food.ShowInfos();
 
 		Console.WriteLine("");
 		
-		///Food
-		viande.ShowInfos();
 
     }
 }
