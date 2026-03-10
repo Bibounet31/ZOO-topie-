@@ -20,8 +20,10 @@ class Program
         var defaultmeat = 5;
         var defaultseeds = 6;
         
-		// create new Animals... (calling Public Animals in Animals.cs right >:3)	
-		//name|age|gender|ispregnant|isalive|cost
+        
+        
+        
+		// create new Animals...   -- 	name|age|gender|ispregnant|isalive|cost|illness
 		for (int i = 0; i < defaultTigers; i++)
 			new Animals("Tiger", 120, "male", false, true, 200, "false");
 
@@ -36,7 +38,7 @@ class Program
 			animal.ShowInfos();
 
 			
-	    // create new Food --    Name|qty|price
+	    // create new Food     --    Name|qty|price
 	    new Food("meat", defaultmeat, 200);
 	    new Food("seeds", defaultseeds, 200);
 

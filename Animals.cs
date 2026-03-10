@@ -6,23 +6,23 @@ class Animals {
 
 
     // declaring variables (_ since theyre private)
-    private string _name;
+    private string _name = "";
     private int _age;
-    private string _gender;
+    private string _gender = "";
     private bool _ispregnant;
     private bool _isalive;   
 	private double _cost;
-	private string _ill;
+	private string _illness = "";
     
     // constructor (note to myself, it must have the same name as the class...)
-    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost, string ill) {
+    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost, string illness) {
         Name = name;
         Age = age;
         Gender = gender;
         Ispregnant = ispregnant;
         Isalive = isalive;
 		Cost = cost;
-		Ill = ill;  
+		Illness = illness;  
 
 		AllAnimals.Add(this);
     }
@@ -62,15 +62,15 @@ class Animals {
 		set { _cost = value; }
 	}
     
-	public string Ill {
-		get { return _ill; }
-		set { _ill = value; }
+	public string Illness {
+		get { return _illness; }
+		set { _illness = value; }
 }
 
     // ShowInfos uses the infos stored in the "public bool "blabla" that get their values from the private variables on top :3
     public void ShowInfos()
     {
-        Console.WriteLine($"Animal : {Name},   age: {Age},    genre: {Gender},   is pregnant: {Ispregnant},   is alive: {Isalive},    cost(monthly): {Cost},    ill {Ill}");
+        Console.WriteLine($"Animal : {Name},   age: {Age},    genre: {Gender},   is pregnant: {Ispregnant},   is alive: {Isalive},    cost(monthly): {Cost},    illness {Illness}");
     }
     
 }

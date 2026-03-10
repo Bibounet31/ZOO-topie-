@@ -3,7 +3,7 @@ using System;
 public class Food
 {
     public static List<Food> AllFoods = new List<Food>();
-    private string _name;
+    private string _name = "";
     private int _quantity;
     private double _price;
     
