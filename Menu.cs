@@ -50,8 +50,7 @@ class Menu
 
     static void NouvellePartie()
     {
-        bool retour = false;
-        while (!retour)
+        while (true)
         {
             Console.Clear();
             Console.WriteLine("== NOUVELLE PARTIE ==");
@@ -72,7 +71,7 @@ class Menu
                     break;
                 
                 case "3":
-                    retour = true;
+                    Start();
                     break;
                 
                 default:
@@ -203,7 +202,7 @@ class Menu
                     break;
                 
                 case "6":
-                    retour = true;
+					Start();
                     break;
                 
                 default:
