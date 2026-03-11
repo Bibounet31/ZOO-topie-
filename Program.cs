@@ -4,20 +4,31 @@ class Program
 {
     static void Main()
     {
-
-	    var logs = false;
+	    var difficulty = "easy";
+	    var logs = true;
 		//random debug from when i was lost, might be usefull sometimes
         if (logs) {Console.WriteLine("program.cs called!");}
 		
+        int defaultTigers = 0;
+        int defaultPandas = 0;
+        int defaultLions = 0;
+        
+        int defaultmeat = 0;
+        int defaultseeds = 0;
+        
+        
         
         // init default values
         //init the number of animals at the start of the game
-        var defaultTigers = 3;
-        var defaultPandas = 2;
-        var defaultLions  = 4;
-
-        var defaultmeat = 5;
-        var defaultseeds = 6;
+        Console.WriteLine(difficulty);
+        if (difficulty != "easy") {
+	        defaultTigers = 3;
+	        defaultPandas = 2;
+	        defaultLions  = 4;
+	        defaultmeat = 5;
+	        defaultseeds = 6;
+        } 
+        Console.WriteLine("aaaa");
         
         
         
@@ -49,7 +60,6 @@ class Program
 	    
 	    
 		//BANK
-
 	    //add money
 	    Bank.bankaccount.AddMoney(500); 
 	    //remove money
@@ -59,7 +69,7 @@ class Program
 	    
 	    
 	    ///start menu....
-	    //Menu.Start();
+	    ///Menu.Start();
 
 
     }
