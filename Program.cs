@@ -35,20 +35,27 @@ class Program
 	        defaultseeds = 4;
 	        Bank.bankaccount.RemoveMoney(20000);
         }
-		        
+        
+        
         
 		// create new Animals...   -- 	name|age|gender|ispregnant|isalive|cost|illness
-		for (int i = 0; i < defaultTigers; i++)
-			new Animals("Tiger", 120, "male", false, true, 0, "false");
+		for (int i = 0; i < defaultTigers; i++) {
+			RandomGender rg = new RandomGender(); //get random gender
+			new Animals("Tiger", 120, rg.Gender, false, true, 0, "false");
+		}
 
-		for (int i = 0; i < defaultPandas; i++)
-			new Animals("Panda", 60, "female", false, true, 0, "false");
+		for (int i = 0; i < defaultPandas; i++) {
+				RandomGender rg = new RandomGender();
+				new Animals("Panda", 60, rg.Gender, false, true, 0, "false");
+			}
 
-		for (int i = 0; i < defaultLions; i++)
-			new Animals("Lion", 95, "male", false, true, 0, "false");
+	    for (int i = 0; i < defaultLions; i++) {
+			RandomGender rg = new RandomGender();
+			new Animals("Lion", 95, rg.Gender, false, true, 0, "false");
+		}
 
-		
-	    // create new Food     --    Name|qty|price
+
+			// create new Food     --    Name|qty|price
 	    if (defaultmeat > 0 || defaultseeds > 0) {
 		    new Food("meat", defaultmeat, 5);
 		    new Food("seeds", defaultseeds, 2.5);
@@ -62,7 +69,10 @@ class Program
 		    
 		    foreach (var food in Food.AllFoods)
 			    food.ShowInfos();
+		    
 	    }
+	    
+	  
 	    
 	    
 		//BANK

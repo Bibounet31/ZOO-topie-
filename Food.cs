@@ -7,7 +7,7 @@ public class Food
     private int _quantity;
     private double _price;
     
-    public  Food(string name, int quantity, double price)
+    public Food(string name, int quantity, double price)
     {
         Name = name;
         Quantity = quantity;
