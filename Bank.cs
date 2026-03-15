@@ -1,3 +1,5 @@
+using System;
+
 class Bank
 {
     // declaring variables
@@ -15,6 +17,9 @@ class Bank
     }
 
     public void RemoveMoney(int amount) {
+		if (Settings.Logs) {
+			Console.WriteLine($"removed {amount}€ from player");
+			}
         _money = _money - amount;
     }
     

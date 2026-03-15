@@ -5,9 +5,9 @@ class Program
     static void Main()
     {
 	    var difficulty = "hard";
-	    var logs = true;
+	    
 		//random debug from when i was lost, might be usefull sometimes
-        if (logs) {Console.WriteLine("program.cs called!");}
+        if (Settings.Logs) {Console.WriteLine("program.cs called!");}
 		
         int defaultTigers = 0;
         int defaultPandas = 0;
@@ -56,7 +56,7 @@ class Program
 	    
 	    
 	    
-	    if (logs) {
+	    if (Settings.Logs) {
 		    foreach (var animal in Animals.AllAnimals)
 			    animal.ShowInfos();
 		    
@@ -77,6 +77,7 @@ class Program
 	    ///start menu....
 	    ///Menu.Start();
 
+	    
 
     }
 }
