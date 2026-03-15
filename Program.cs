@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-	    var difficulty = "easy";
+	    var difficulty = "hard";
 	    var logs = true;
 		//random debug from when i was lost, might be usefull sometimes
         if (logs) {Console.WriteLine("program.cs called!");}
@@ -21,17 +21,21 @@ class Program
         // init default values
         //init the number of animals at the start of the game
         Console.WriteLine(difficulty);
-        if (difficulty != "easy") {
+        if (difficulty == "easy") { //difficulty easy
 	        defaultTigers = 3;
 	        defaultPandas = 2;
 	        defaultLions  = 4;
 	        defaultmeat = 5;
 	        defaultseeds = 6;
-        } 
-        Console.WriteLine("aaaa");
-        
-        
-        
+        } else {					// difficulty hard
+	        defaultTigers = 2;
+	        defaultPandas = 2;
+	        defaultLions  = 2;
+	        defaultmeat = 3;
+	        defaultseeds = 4;
+	        Bank.bankaccount.RemoveMoney(20000);
+        }
+		        
         
 		// create new Animals...   -- 	name|age|gender|ispregnant|isalive|cost|illness
 		for (int i = 0; i < defaultTigers; i++)
@@ -45,9 +49,11 @@ class Program
 
 		
 	    // create new Food     --    Name|qty|price
-	    new Food("meat", defaultmeat, 5);
-	    new Food("seeds", defaultseeds, 2.5);
-
+	    if (defaultmeat > 0 || defaultseeds > 0) {
+		    new Food("meat", defaultmeat, 5);
+		    new Food("seeds", defaultseeds, 2.5);
+	    }
+	    
 	    
 	    
 	    if (logs) {
