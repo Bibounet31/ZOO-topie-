@@ -17,8 +17,6 @@ public class RandomGender {
        
     }
     
-    
-    
     public string Gender 
     {
         get { return _gender; }

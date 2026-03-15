@@ -222,14 +222,18 @@ class Menu
 
     static void ModeFacile()
     {
-        Console.WriteLine("Mode facile");
+		Settings.Difficulty = "easy";
+		Console.WriteLine($"Difficulty {Settings.Difficulty}");
+		Init.StartGame();
         Console.ReadLine();
         NomZoo();
     }
 
     static void ModeDifficile()
     {
-        Console.WriteLine("Mode difficile");
+		Settings.Difficulty = "hard";
+		Console.WriteLine($"Difficulty {Settings.Difficulty}");
+		Init.StartGame();
         Console.ReadLine();
         NomZoo();
     }
