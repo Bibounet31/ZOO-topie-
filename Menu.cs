@@ -202,6 +202,7 @@ class Menu
                     break;
                 
                 case "6":
+					Saves.Save(1);
 					Start();
                     break;
                 
@@ -252,18 +253,21 @@ class Menu
     static void ChargerPartie1()
     {
         Console.Write("Charger  partie 1");
+		Saves.Load(1);
         Console.ReadLine();
     }
 
     static void ChargerPartie2()
     {
         Console.Write("Charger partie 2");
+		Saves.Load(2);
         Console.ReadLine();
     }
     
     static void ChargerPartie3()
     {
         Console.Write("Charger partie 3");
+		Saves.Load(3);
         Console.ReadLine();
     }
 
@@ -294,6 +298,7 @@ class Menu
     static void InfoZoo()
     {
         Console.Write("Info Zoo");
+		Console.Write(Settings.Name);
         Console.ReadLine();
     }
 

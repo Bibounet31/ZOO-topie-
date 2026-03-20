@@ -9,6 +9,9 @@ copy.cs
 # dotenv files
 .env
 
+# game saves
+*.csv
+
 # User-specific files
 *.rsuser
 *.suo
