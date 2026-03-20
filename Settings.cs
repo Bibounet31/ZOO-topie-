@@ -4,5 +4,6 @@ public static class Settings
 
     public static string Difficulty { get; set; } = "easy"; // Default game difficulty
 
+	public static string Name { get; set; } = "name"; // default zoo name
 
 }

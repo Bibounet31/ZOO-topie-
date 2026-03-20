@@ -242,9 +242,9 @@ class Menu
     {
         Console.Clear();
         Console.Write("Entrer le nom de votre Zoo : ");
-        nomZoo = Console.ReadLine();
+        Settings.Name = Console.ReadLine();
 
-        Console.WriteLine($"\nBIENVENU DANS {nomZoo} VOTRE NOUVEAU ZOO !");
+        Console.WriteLine($"\nBIENVENU DANS {Settings.Name} VOTRE NOUVEAU ZOO !");
         Pause();
         MenuZoo();
     }
