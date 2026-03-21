@@ -7,19 +7,22 @@ class Menu
     
     public static void Start()
     {
-        bool continuer = true ;
+        bool continuer = true;
         while (continuer)
         {
-            
             Console.Clear();
-            Console.WriteLine("=== BIENVENUE A ZOOtopie ===");
-            Console.WriteLine("1 - Nouvelle Partie");
-            Console.WriteLine("2 - Charger partie");
-            Console.WriteLine("3 - Parametre");
-            Console.WriteLine("4 - Quitter le jeu");
-            Console.Write("Choix : ");
-            
-            string? choix = Console.ReadLine();
+            Console.WriteLine();
+            UI.PrintLogo();
+            UI.HeavyRule();
+            UI.Subtitle("le zoo de vos rêves — gérez, construisez, survivez.");
+
+            UI.Option("1", "Nouvelle Partie");
+            UI.Option("2", "Charger une partie");
+            UI.Option("3", "Paramètres");
+            UI.Option("4", "Quitter");
+            Console.WriteLine();
+
+            string? choix = UI.Prompt();
             switch (choix)
             {
                 case "1":
@@ -35,17 +38,18 @@ class Menu
                     break;
                 
                 case "4":
-                    continuer = false;
+                    Environment.Exit(0);
                     break;
                 
                 default:
-                    Console.WriteLine("Choix invalide");
+                    UI.Error("Choix invalide, réessayez.");
                     Pause();
                     break;
             }
         }
 
-        Console.WriteLine("Au revoir ! A bientot");
+        Console.Clear();
+        UI.TypeWriteLine("\n  À bientôt dans ZOOtopie.\n", 20, UI.LightGreen + UI.Bold);
     }
 
     static void NouvellePartie()
@@ -53,13 +57,14 @@ class Menu
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("== NOUVELLE PARTIE ==");
-            Console.WriteLine("1 - Mode facile");
-            Console.WriteLine("2 - Mode difficile");
-            Console.WriteLine("3 - Retour");
-            Console.Write("Choix : ");
+            UI.Banner("Nouvelle Partie");
 
-            string? choix = Console.ReadLine();
+            UI.Option("1", "Mode Facile");
+            UI.Option("2", "Mode Difficile");
+            UI.Option("3", "Retour");
+            Console.WriteLine();
+
+            string? choix = UI.Prompt();
             switch (choix)
             {
                 case "1":
@@ -75,7 +80,7 @@ class Menu
                     break;
                 
                 default:
-                    Console.WriteLine("Choix invalide");
+                    UI.Error("Choix invalide, réessayez.");
                     Pause();
                     break;
             }
@@ -88,14 +93,15 @@ class Menu
         while (!retour)
         {
             Console.Clear();
-            Console.WriteLine("== CHANGER PARTIE");
-            Console.WriteLine("1 - Charger partie 1: nom");
-            Console.WriteLine("2 - Charger partie 2: nom");
-            Console.WriteLine("3 - Charger partie 3: nom");
-            Console.WriteLine("4 - Retour");
-            Console.Write("Choix : ");
+            UI.Banner("Charger une Partie");
 
-            string? choix = Console.ReadLine();
+            UI.Option("1", "Partie 1  —  nom");
+            UI.Option("2", "Partie 2  —  nom");
+            UI.Option("3", "Partie 3  —  nom");
+            UI.Option("4", "Retour");
+            Console.WriteLine();
+
+            string? choix = UI.Prompt();
             switch (choix)
             {
                 case "1":
@@ -115,7 +121,7 @@ class Menu
                     break;
                 
                 default:
-                    Console.WriteLine("Choix invalide");
+                    UI.Error("Choix invalide, réessayez.");
                     Pause();
                     break;
             }
@@ -128,14 +134,15 @@ class Menu
         while (!retour)
         {
             Console.Clear();
-            Console.WriteLine("== PARAMETRE PARTIE ==");
-            Console.WriteLine("1 - Parametre 1");
-            Console.WriteLine("2 - Parametre 2");
-            Console.WriteLine("3 - Parametre 3");
-            Console.WriteLine("4 - Retour");
-            Console.Write("Choix : ");
+            UI.Banner("Paramètres");
 
-            string? choix = Console.ReadLine();
+            UI.Option("1", "Paramètre 1");
+            UI.Option("2", "Paramètre 2");
+            UI.Option("3", "Paramètre 3");
+            UI.Option("4", "Retour");
+            Console.WriteLine();
+
+            string? choix = UI.Prompt();
             switch (choix)
             {
                 case "1":
@@ -155,7 +162,7 @@ class Menu
                     break;
                 
                 default:
-                    Console.WriteLine("Choix invalide");
+                    UI.Error("Choix invalide, réessayez.");
                     Pause();
                     break;
             }
@@ -168,29 +175,29 @@ class Menu
         while (!retour)
         {
             Console.Clear();
-            Console.WriteLine("== MENU DU JEU ==");
-            Console.WriteLine("1 - Play");
-            Console.WriteLine("2 - Info zoo");
-            Console.WriteLine("3 - Map zoo");
-            Console.WriteLine("4 - Option");
-            Console.WriteLine("5 - Retour");
-            Console.WriteLine("6 - Retour menu principal");
-            Console.Write("Choix : ");
+            UI.Banner($"Zoo : {Settings.Name}");
 
-            string? choix = Console.ReadLine();
+            UI.Option("1", "Jouer");
+            UI.Option("2", "Infos du Zoo");
+            UI.Option("3", "Carte du Zoo");
+            UI.Option("4", "Options");
+            UI.Option("5", "Retour");
+            UI.Option("6", "Menu principal");
+            Console.WriteLine();
+
+            string? choix = UI.Prompt();
             switch (choix)
-            
             {
                 case "1":
                     Play();
                     break;
                 
                 case "2":
-                    InfoZoo ();
+                    InfoZoo();
                     break;
                 
                 case "3": 
-                    MapZoo ();
+                    MapZoo();
                     break;
                 
                 case "4":
@@ -202,39 +209,39 @@ class Menu
                     break;
                 
                 case "6":
-					Saves.Save(1);
-					Start();
+                    Saves.Save(1);
+                    Start();
                     break;
                 
                 default:
-                    Console.WriteLine("Choix invalide");
+                    UI.Error("Choix invalide, réessayez.");
                     Pause();
                     break;
             }
         }
-            
     }
     
     static void Pause()
     {
-        Console.WriteLine("\nAppuyer sur Entré");
-        Console.ReadLine();
+        UI.Pause();
     }
 
     static void ModeFacile()
     {
-		Settings.Difficulty = "easy";
-		Console.WriteLine($"Difficulty {Settings.Difficulty}");
-		Init.StartGame();
+        Settings.Difficulty = "easy";
+        UI.Loading("Initialisation du mode facile");
+        Console.WriteLine($"Difficulty {Settings.Difficulty}");
+        Init.StartGame();
         Console.ReadLine();
         NomZoo();
     }
 
     static void ModeDifficile()
     {
-		Settings.Difficulty = "hard";
-		Console.WriteLine($"Difficulty {Settings.Difficulty}");
-		Init.StartGame();
+        Settings.Difficulty = "hard";
+        UI.Loading("Initialisation du mode difficile");
+        Console.WriteLine($"Difficulty {Settings.Difficulty}");
+        Init.StartGame();
         Console.ReadLine();
         NomZoo();
     }
@@ -242,32 +249,38 @@ class Menu
     static void NomZoo()
     {
         Console.Clear();
-        Console.Write("Entrer le nom de votre Zoo : ");
+        UI.Rule('─', 48);
+        Console.WriteLine();
+        UI.Write("  Nom de votre zoo  ", UI.Yellow + UI.Bold);
+        Console.WriteLine();
+        UI.Rule('─', 48);
+        Console.WriteLine();
+        UI.Write($"  {UI.Green}›{UI.Reset}  ", "");
         Settings.Name = Console.ReadLine();
 
-        Console.WriteLine($"\nBIENVENU DANS {Settings.Name} VOTRE NOUVEAU ZOO !");
+        UI.Success($"Bienvenue dans {Settings.Name}.");
         Pause();
         MenuZoo();
     }
 
     static void ChargerPartie1()
     {
-        Console.Write("Charger  partie 1");
-		Saves.Load(1);
+        UI.Loading("Chargement de la partie 1");
+        Saves.Load(1);
         Console.ReadLine();
     }
 
     static void ChargerPartie2()
     {
-        Console.Write("Charger partie 2");
-		Saves.Load(2);
+        UI.Loading("Chargement de la partie 2");
+        Saves.Load(2);
         Console.ReadLine();
     }
     
     static void ChargerPartie3()
     {
-        Console.Write("Charger partie 3");
-		Saves.Load(3);
+        UI.Loading("Chargement de la partie 3");
+        Saves.Load(3);
         Console.ReadLine();
     }
 
@@ -298,7 +311,7 @@ class Menu
     static void InfoZoo()
     {
         Console.Write("Info Zoo");
-		Console.Write(Settings.Name);
+        Console.Write(Settings.Name);
         Console.ReadLine();
     }
 
@@ -306,8 +319,8 @@ class Menu
     {
         Console.Write("Map Zoo");
         Console.ReadLine();
-        
     }
+
     static void Option()
     {
         Console.Write("Option");
