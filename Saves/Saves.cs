@@ -18,6 +18,7 @@ public class Saves
 
         File.WriteAllText(path, csv);
         UI.Success($"Game saved to slot {slot}");
+        Thread.Sleep(1000);
     }
 
 
