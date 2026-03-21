@@ -169,7 +169,7 @@ class Menu
         }
     }
 
-    static void MenuZoo()
+    public static void MenuZoo()
     {
         bool retour = false;
         while (!retour)
@@ -181,8 +181,7 @@ class Menu
             UI.Option("2", "Infos du Zoo");
             UI.Option("3", "Carte du Zoo");
             UI.Option("4", "Options");
-            UI.Option("5", "Retour");
-            UI.Option("6", "Menu principal");
+            UI.Option("5", "Menu principal");
             Console.WriteLine();
 
             string? choix = UI.Prompt();
@@ -205,12 +204,7 @@ class Menu
                     break;
                 
                 case "5":
-                    retour = true;
-                    break;
-                
-                case "6":
-                    Saves.Save(1);
-                    Start();
+                    Askforslot();
                     break;
                 
                 default:
@@ -220,6 +214,53 @@ class Menu
             }
         }
     }
+    
+    
+    static void Askforslot()
+    {
+        bool retour = false;
+        while (!retour)
+        {
+            Console.Clear();
+            UI.Banner($"Zoo : {Settings.Name}");
+
+            UI.Option("1", "Slot 1");
+            UI.Option("2", "Slot 2");
+            UI.Option("3", "Slot 3");
+            UI.Option("4", "Retour");
+            Console.WriteLine();
+
+            string? choix = UI.Prompt();
+            switch (choix)
+            {
+                case "1":
+                    Saves.Save(1);
+                    Start();
+                    break;
+                
+                case "2":
+                    Saves.Save(2);
+                    Start();
+                    break;
+                
+                case "3": 
+                    Saves.Save(3);
+                    Start();
+                    break;
+                
+                case "4":
+                    MenuZoo();
+                    break;
+                
+                default:
+                    UI.Error("Choix invalide, réessayez.");
+                    Pause();
+                    break;
+            }
+        }
+    }
+    
+    
     
     static void Pause()
     {

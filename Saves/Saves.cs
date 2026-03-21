@@ -1,9 +1,11 @@
+using System.Threading;
+
 public class Saves
 {
     private static string GetSavePath(int slot)
     {
         //each slot will be a save
-        return $"save{slot}.csv";
+        return $"Saves/save{slot}.csv";
     }
 
 
@@ -15,7 +17,7 @@ public class Saves
         csv += $"{Settings.Difficulty},{Settings.Name}";
 
         File.WriteAllText(path, csv);
-        Console.WriteLine($"Game saved to slot {slot}");
+        UI.Success($"Game saved to slot {slot}");
     }
 
 
@@ -26,7 +28,7 @@ public class Saves
 
         if (!File.Exists(path))
         {
-            Console.WriteLine($"Save {slot} is empty");
+            UI.Error($"Save {slot} is empty");
             return;
         }
 
@@ -36,7 +38,9 @@ public class Saves
         Settings.Difficulty = values[0];
         Settings.Name = values[1];
 
-        Console.WriteLine($"Slot {slot} loaded!");
+        UI.Success($"Slot {slot} loaded!");
+        Thread.Sleep(710);
+        Menu.MenuZoo();
     }
 
     // check if a slot already has a save in it
