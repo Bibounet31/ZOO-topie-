@@ -2,6 +2,26 @@ using System;
 
 public static class Init
 {
+
+	public static void initShop(){
+		Shop myShop = new Shop("General Store");
+		if (Settings.Difficulty == "easy") {
+			if (Settings.Logs) {
+				Console.WriteLine("setting up easy shop");
+				}
+			myShop.AddItem("cow", 49.99);
+			myShop.AddItem("chgicken", 9.99);
+			myShop.ShowInventory();
+		} else {
+			if (Settings.Logs) {
+				Console.WriteLine("setting up hard shop");
+				}
+				myShop.AddItem("cow", 49.99);
+				myShop.AddItem("chgicken", 9.99);
+				myShop.ShowInventory();
+		}
+	}
+
     public static void StartGame()
     {
        
@@ -21,12 +41,14 @@ public static class Init
             defaultLions  = 4;
             defaultmeat = 5;
             defaultseeds = 6;
+			initShop();
         } else {                // difficulty hard
             defaultTigers = 2;
             defaultPandas = 2;
             defaultLions  = 2;
             defaultmeat = 3;
             defaultseeds = 4;
+			initShop();
             Bank.bankaccount.RemoveMoney(20000);
         }
         
@@ -60,6 +82,9 @@ public static class Init
               food.ShowInfos();
         }
         
+
+
+	
        //BANK
         //add money
         //Bank.bankaccount.AddMoney(500); 
