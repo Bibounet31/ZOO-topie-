@@ -4,7 +4,7 @@ class Bank
 {
     // declaring variables
     public static Bank bankaccount = new Bank(80000);   
-    private int _money;
+    private static int _money;
 
     //constructor
     public Bank(int money) {
@@ -22,7 +22,11 @@ class Bank
 			}
         _money = _money - amount;
     }
-    
+
+    public static int ShowMoney()
+    {
+        return _money;
+    }
     
     
     public int Money {
