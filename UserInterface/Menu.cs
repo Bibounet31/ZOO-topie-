@@ -188,7 +188,7 @@ class Menu
             switch (choix)
             {
                 case "1":
-                    Game.Play();
+                    Play();
                     break;
                 
                 case "2":
