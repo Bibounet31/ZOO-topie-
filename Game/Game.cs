@@ -16,7 +16,7 @@ public static class Game
             UI.Banner($"Tour {turn}");
             
             // show some infos
-            Console.WriteLine($"Animals: {Animals.AllAnimals.Count}");
+            Console.WriteLine($"Animals: {Animals.AllAnimals.Count(a => a.Isalive)}");
             Bank.bankaccount.ShowInfos();
             
             // player options
@@ -31,6 +31,7 @@ public static class Game
                 case "1":
                     Turn.Next();
                     turn++;
+                    UI.Prompt();
                     break;
                 case "2":
                     foreach (var animal in Animals.AllAnimals)

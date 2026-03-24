@@ -6,6 +6,8 @@ public static class Turn
     private static int _currentMonth = 1; // 1 = january, 12 = december
     private static int _currentYear = 1;
 
+    private static int _totalTurns = 0;
+
     //days per month
     private static int[] _daysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
@@ -29,8 +31,7 @@ public static class Turn
         ProcessOverpopulation();
         ProcessVisitors();
         ProcessSubventions();
-        ProcessExceptionalEvents();
-
+        Events.ProcessAll();
         AdvanceMonth();
     }
 
@@ -329,7 +330,7 @@ public static class Turn
     //subventions paid every january
     private static void ProcessSubventions() {
         if (_currentMonth != 1) return;
-
+        if (_totalTurns == 0) return;
         double total = 0;
         foreach (var animal in Animals.AllAnimals) {
             if (!animal.Isalive) continue;
@@ -375,7 +376,9 @@ public static class Turn
     }
 
     //advance to next month
-    private static void AdvanceMonth() {
+    private static void AdvanceMonth()
+    {
+        _totalTurns++;
         _currentMonth++;
         if (_currentMonth > 12) {
             _currentMonth = 1;
