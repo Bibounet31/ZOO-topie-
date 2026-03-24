@@ -2,9 +2,8 @@ using System;
 
 public static class Init
 {
-
+	public static Shop myShop = new Shop("General Store");
 	public static void initShop(){
-		Shop myShop = new Shop("General Store");
 		if (Settings.Difficulty == "easy") {
 			if (Settings.Logs) {
 				Console.WriteLine("setting up easy shop");
@@ -25,7 +24,7 @@ public static class Init
     public static void StartGame()
     {
        
-        int defaultTigers = 0;
+        int defaultTiger = 0;
         int defaultPandas = 0;
         int defaultLions = 0;
         
@@ -36,14 +35,14 @@ public static class Init
         //init the number of animals at the start of the game
         Console.WriteLine(Settings.Difficulty);
         if (Settings.Difficulty == "easy") { //difficulty easy
-            defaultTigers = 3;
+            defaultTiger = 3;
             defaultPandas = 2;
             defaultLions  = 4;
             defaultmeat = 5;
             defaultseeds = 6;
 			initShop();
         } else {                // difficulty hard
-            defaultTigers = 2;
+            defaultTiger = 2;
             defaultPandas = 2;
             defaultLions  = 2;
             defaultmeat = 3;
@@ -53,7 +52,7 @@ public static class Init
         }
         
        // create new Animals...   --  name|age|gender|ispregnant|isalive|cost|illness
-       for (int i = 0; i < defaultTigers; i++) {
+       for (int i = 0; i < defaultTiger; i++) {
           RandomGender rg = new RandomGender(); //get random gender
           new Animals("Tiger", 120, rg.Gender, false, true, 0, "false");
        }

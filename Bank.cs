@@ -4,7 +4,7 @@ class Bank
 {
     // declaring variables
     public static Bank bankaccount = new Bank(80000);   
-    private static int _money;
+    private static double _money;
 
     //constructor
     public Bank(int money) {
@@ -12,24 +12,24 @@ class Bank
     }
 
 
-    public void AddMoney(int amount) {
+    public void AddMoney(double amount) {
         _money = _money + amount;
     }
 
-    public void RemoveMoney(int amount) {
+    public void RemoveMoney(double amount) {
 		if (Settings.Logs) {
 			Console.WriteLine($"removed {amount}€ from player");
 			}
         _money = _money - amount;
     }
 
-    public static int ShowMoney()
+    public static double ShowMoney()
     {
         return _money;
     }
     
     
-    public int Money {
+    public double Money {
         get { return _money; }
         set { _money = value; }
     }

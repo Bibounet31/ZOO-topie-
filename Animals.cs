@@ -2,8 +2,9 @@ using System; // needed for Console.stuff (WriteLine for example)
 
 class Animals {
 	//store created animals!
-	public static List<Animals> AllAnimals = new List<Animals>();
-
+	public static List<Animals> AllAnimals = new List<Animals>();	
+	public int GestationMonths { get; set; } = 0;
+	public int IllnessDaysLeft { get; set; } = 0;
 
     // declaring variables (_ since theyre private)
     private string _name = "";
