@@ -95,9 +95,9 @@ class Menu
             Console.Clear();
             UI.Banner("Charger une Partie");
 
-            UI.Option("1", "Partie 1  —  nom");
-            UI.Option("2", "Partie 2  —  nom");
-            UI.Option("3", "Partie 3  —  nom");
+            UI.Option("1", "Partie 1");
+            UI.Option("2", "Partie 2");
+            UI.Option("3", "Partie 3");
             UI.Option("4", "Retour");
             Console.WriteLine();
 
