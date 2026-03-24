@@ -9,14 +9,14 @@ public static class Init
 				Console.WriteLine("setting up easy shop");
 				}
 			myShop.AddItem("cow", 49.99);
-			myShop.AddItem("chgicken", 9.99);
+			myShop.AddItem("chicken", 9.99);
 			myShop.ShowInventory();
 		} else {
 			if (Settings.Logs) {
 				Console.WriteLine("setting up hard shop");
 				}
 				myShop.AddItem("cow", 49.99);
-				myShop.AddItem("chgicken", 9.99);
+				myShop.AddItem("chicken", 9.99);
 				myShop.ShowInventory();
 		}
 	}
@@ -39,7 +39,7 @@ public static class Init
             defaultPandas = 2;
             defaultLions  = 4;
             defaultmeat = 5;
-            defaultseeds = 6;
+            defaultseeds = 60;
 			initShop();
         } else {                // difficulty hard
             defaultTiger = 2;
