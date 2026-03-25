@@ -2,7 +2,7 @@
 
 Un jeu de gestion de zoo en C# où vous gérez des animaux, des habitats, un budget et faites face à des événements aléatoires.
 
-#Table des matières
+Table des matières
 
 - Présentation
 - Animaux
@@ -15,7 +15,7 @@ Un jeu de gestion de zoo en C# où vous gérez des animaux, des habitats, un bud
 
 # Présentation
 
-Zoo Manager est un jeu au tour par tour. Chaque tour représente **un mois**. Vous devez gérer vos animaux, votre nourriture, vos habitats et votre budget pour faire prospérer votre zoo.
+Zoo Manager est un jeu au tour par tour. Chaque tour représente "un mois". Vous devez gérer vos animaux, votre nourriture, vos habitats et votre budget pour faire prospérer votre zoo.
 
 # Animaux
 
@@ -44,12 +44,12 @@ Chaque mois, un individu peut tomber malade selon sa probabilité annuelle (divi
 | Aigle  | 10%                  | 30 jours        | ± 20%           |
 | Poule  | 5%                   | 5 jours         | ± 20%           |
 
-- Taux de mortalité** lors d'une maladie : 10%
-- Un animal malade **ne se reproduit pas**
+- Taux de mortalité lors d'une maladie : 10%
+- Un animal malade "ne se reproduit pas"
 
 ## Habitats
 
-Les habitats ont une capacité limitée. Si la population dépasse la capacité, un événement de **surpopulation** est déclenché.
+Les habitats ont une capacité limitée. Si la population dépasse la capacité, un événement de "surpopulation" est déclenché.
 
 ### Actions possibles sur les habitats
 
