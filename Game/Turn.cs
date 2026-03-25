@@ -40,7 +40,7 @@ public static class Turn
         
         if (Bank.ShowMoney() >= totalCost) {
             Bank.bankaccount.RemoveMoney(totalCost);
-            UI.WriteLine($"{UI.Green}✓{UI.Reset} Nourriture : -{totalCost:F2}€");
+            UI.WriteLine($"Nourriture : -{totalCost:F2}€");
         } else {
             UI.Error("FAMINE ! Pas assez d'argent pour nourrir les animaux.");
             foreach (var a in Animals.AllAnimals.Where(a => a.Isalive)) {
@@ -95,7 +95,7 @@ public static class Turn
         double visitors = Animals.AllAnimals.Count(a => a.Isalive) * 15 * Rng.Variation();
         double money = visitors * 15; // 15€ par visiteur
         Bank.bankaccount.AddMoney(money);
-        UI.WriteLine($"{UI.Green}💸{UI.Reset} Billetterie : +{money:F2}€ ({Math.Round(visitors)} visiteurs)");
+        UI.WriteLine($"Billetterie : +{money:F2}€ ({Math.Round(visitors)} visiteurs)");
     }
 
     private static void ProcessSubventions() {
