@@ -20,7 +20,7 @@ public static class Game
             Bank.bankaccount.ShowInfos();
             
             // player options
-            UI.Option("1", "Passer le tour");
+            UI.Option("1", "Passer le mois");
             UI.Option("2", "Voir les animaux");
             UI.Option("3", "Boutique");
             UI.Option("4", "Quitter");
