@@ -17,9 +17,10 @@ Table des matières
 
 Zoo Manager est un jeu au tour par tour. Chaque tour représente "un mois". Vous devez gérer vos animaux, votre nourriture, vos habitats et votre budget pour faire prospérer votre zoo.
 
+démarer le jeu: exécuter la commande "dotnet run" dans le dossier root du jeu
+
 # Animaux
 
-# Espèces disponibles
 
 Tigre
 Aigle
