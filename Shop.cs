@@ -1,51 +1,67 @@
+using System;
+using System.Collections.Generic;
+
 public class Shop
 {
     public string Name { get; set; }
     public Dictionary<string, double> Items { get; set; }
-    public double Balance { get; set; }
 
     public Shop(string name)
     {
         this.Name = name;
         Items = new Dictionary<string, double>();
-        Balance = Bank.ShowMoney();
-        Console.WriteLine($"Shop {Name} created");
     }
 
     public void AddItem(string item, double price)
     {
-        Items.Add(item, price);
-        Console.WriteLine($"{item} added for ${price}");
+        if (!Items.ContainsKey(item)) Items.Add(item, price);
     }
-
 
     public void ShowInventory()
     {
-        Console.WriteLine($"\n-- {Name} Inventory --");
-        if (Items.Count == 0)
+        int i = 1;
+        foreach (var item in Items)
         {
-            Console.WriteLine("No items in stock.");
+            UI.WriteLine($"  {UI.Tan}{i}.{UI.Reset} {item.Key.PadRight(20)} : {UI.Yellow}{item.Value}€{UI.Reset}");
+            i++;
         }
-        else
-        {
-            foreach (var item in Items)
-            {
-                Console.WriteLine($"- {item.Key} : ${item.Value}");
-            }
-        }
+        UI.WriteLine($"  {UI.Gray}0. Retour{UI.Reset}");
     }
 
-    public void Sell(string item, double price)
+    public void BuyItem(int choice)
     {
-        if (Items.ContainsKey(item))
+        if (choice <= 0 || choice > Items.Count) return;
+        
+        int current = 1;
+        foreach (var item in Items)
         {
-            Items.Remove(item);
-            Balance += price;
-            Console.WriteLine($"Sold '{item}' for ${price}. Balance: ${Balance}");
-        }
-        else
-        {
-            Console.WriteLine($"'{item}' is not available.");
+            if (current == choice)
+            {
+                if (Bank.ShowMoney() >= item.Value)
+                {
+                    Bank.bankaccount.RemoveMoney(item.Value);
+                    
+                    string itemName = item.Key.ToLower();
+
+                    if (itemName.Contains("habitat")) {
+                        UI.Success($"Extension achetée : {item.Key} !");
+						// action after buying an extention.. (todo)
+                    }
+                    else if (itemName.Contains("viande") || itemName.Contains("graines")) {
+                        UI.Success($"Provisions achetées : {item.Key}");
+                    }
+                    else {
+                        new Animals(item.Key, 24, new RandomGender().Gender, false, true, item.Value, "false");
+                        UI.Success($"Nouvel arrivant : Un {item.Key} a rejoint le zoo !");
+                    }
+                }
+                else
+                {
+                    UI.Error("Fonds insuffisants.");
+                }
+                break;
+            }
+            current++;
         }
     }
 }
