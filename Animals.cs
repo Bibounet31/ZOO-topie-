@@ -1,63 +1,39 @@
-using System; // needed for Console.stuff (WriteLine for example) 
+using System;
+using System.Collections.Generic;
 
 class Animals {
-    // declaring variables (_ since theyre private)
+    public static List<Animals> AllAnimals = new List<Animals>();	
+    public int GestationMonths { get; set; } = 0;
+    
     private string _name;
     private int _age;
     private string _gender;
     private bool _ispregnant;
     private bool _isalive;   
-	private double _cost;
+    private double _cost;
+    private string _illness;
     
-    // constructor (note to myself, it must have the same name as the class...)
-    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost) {
-        Name = name;
-        Age = age;
-        Gender = gender;
-        Ispregnant = ispregnant;
-        Isalive = isalive;
-		Cost = cost;
+    public Animals(string name, int age, string gender, bool ispregnant, bool isalive, double cost, string illness) {
+        _name = name; _age = age; _gender = gender; _ispregnant = ispregnant; 
+        _isalive = isalive; _cost = cost; _illness = illness;  
+        AllAnimals.Add(this);
     }
     
-    // get-set used by constructor to check stuff about the inserted value, can use it to add a condition ( example : if (value<0){don't});
-    // theyre the only way we can edit private variables, 
-    // why making the first values private then? it's so we can process the value we want to insert, preventing anyone to insert crap directly in them..
-    
-    public String Name {
-        get { return _name; }
-        set { _name = value; }
-    }
+    public string Name { get => _name; set => _name = value; }
+    public int Age { get => _age; set => _age = value; }
+    public string Gender { get => _gender; set => _gender = value; }
+    public bool Ispregnant { get => _ispregnant; set => _ispregnant = value; }
+    public bool Isalive { get => _isalive; set => _isalive = value; }
+    public double Cost { get => _cost; set => _cost = value; }
+    public string Illness { get => _illness; set => _illness = value; }
 
-    public int Age
-    {
-        get { return _age; }
-        set { _age = value; }
-    }
-
-    public String Gender {
-        get { return _gender; }
-        set { _gender = value; }
-    }
-    
-    public bool Ispregnant {
-        get  { return _ispregnant; }
-        set { _ispregnant = value; }
-    }
-    
-    public bool Isalive {
-        get { return _isalive; }
-        set { _isalive = value; }
-    }
-
-	public double Cost {
-		get { return _cost; }
-		set { _cost = value; }
-	}
-    
-    // ShowInfos uses the infos stored in the "public bool "blabla" that get their values from the private variables on top :3
     public void ShowInfos()
     {
-        Console.WriteLine($"Animal : {Name},age: {Age},genre: {Gender},is pregnant: {Ispregnant},is alive: {Isalive}, cost(monthly): {Cost}");
+        string color = Isalive ? UI.White : UI.Red;
+        string icon = (Gender == "Male") ? "♂" : "♀";
+        string preg = Ispregnant ? $"{UI.LightGreen}[Enceinte]{UI.Reset}" : "";
+        string sick = Illness != "false" ? $"{UI.Orange}[Malade]{UI.Reset}" : "";
+
+        UI.WriteLine($"  {color}{Name.PadRight(10)}{UI.Reset} | {Age} mois | {icon} | {preg} {sick}");
     }
-    
 }

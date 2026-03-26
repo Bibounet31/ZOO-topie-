@@ -2,15 +2,18 @@ using System;
 
 public class Food
 {
-    private string _name;
+    public static List<Food> AllFoods = new List<Food>();
+    private string _name = "";
     private int _quantity;
     private double _price;
     
-    public  Food(string name, int quantity, double price)
+    public Food(string name, int quantity, double price)
     {
         Name = name;
         Quantity = quantity;
         Price = price;
+
+        AllFoods.Add(this);
     }
     
     public string Name {
