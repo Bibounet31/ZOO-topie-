@@ -72,9 +72,10 @@ class Menu
                     ModeFacile();
                     break;
                 
-                case "2":
+                 case "2":
+                    Settings.Difficulty = "hard";
                     NomZoo();
-                    ModeDifficile();
+                    Init.StartGame();
                     break;
                 
                 case "3":
@@ -276,7 +277,6 @@ class Menu
         Console.WriteLine($"Difficulty {Settings.Difficulty}");
         Init.StartGame();
         Console.ReadLine();
-        NomZoo();
     }
 
     static void ModeDifficile()
@@ -286,7 +286,6 @@ class Menu
         Console.WriteLine($"Difficulty {Settings.Difficulty}");
         Init.StartGame();
         Console.ReadLine();
-        NomZoo();
     }
 
     static void NomZoo()
@@ -303,7 +302,6 @@ class Menu
 
         UI.Success($"Bienvenue dans {Settings.Name}.");
         Pause();
-        MenuZoo();
     }
 
     static void ChargerPartie1()
