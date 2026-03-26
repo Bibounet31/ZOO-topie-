@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 
 class Menu
@@ -14,7 +14,7 @@ class Menu
             Console.WriteLine();
             UI.PrintLogo();
             UI.HeavyRule();
-            UI.Subtitle("le zoo de vos rêves — gérez, construisez, survivez.");
+            UI.Subtitle("le zoo de vos rêves — gérez, construisez, survivez.. Ou pas");
 
             UI.Option("1", "Nouvelle Partie");
             UI.Option("2", "Charger une partie");
@@ -40,7 +40,7 @@ class Menu
                 case "4":
                     Environment.Exit(0);
                     break;
-                
+
                 default:
                     UI.Error("Choix invalide, réessayez.");
                     Pause();
@@ -68,11 +68,14 @@ class Menu
             switch (choix)
             {
                 case "1":
+                    NomZoo();
                     ModeFacile();
                     break;
                 
-                case "2":
-                    ModeDifficile();
+                 case "2":
+                    Settings.Difficulty = "hard";
+                    NomZoo();
+                    Init.StartGame();
                     break;
                 
                 case "3":
@@ -274,7 +277,6 @@ class Menu
         Console.WriteLine($"Difficulty {Settings.Difficulty}");
         Init.StartGame();
         Console.ReadLine();
-        NomZoo();
     }
 
     static void ModeDifficile()
@@ -284,7 +286,6 @@ class Menu
         Console.WriteLine($"Difficulty {Settings.Difficulty}");
         Init.StartGame();
         Console.ReadLine();
-        NomZoo();
     }
 
     static void NomZoo()
@@ -301,7 +302,6 @@ class Menu
 
         UI.Success($"Bienvenue dans {Settings.Name}.");
         Pause();
-        MenuZoo();
     }
 
     static void ChargerPartie1()
