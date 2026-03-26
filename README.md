@@ -1,8 +1,6 @@
 #ZooTopie
 
-Un jeu de gestion de zoo en C# où vous gérez des animaux, des habitats, un budget et faites face à des événements aléatoires.
-
-Table des matières
+Un jeu de gestion de zoo en C# où vous gérez des animaux, des habitats et un budget.
 
 - Présentation
 - Animaux
@@ -15,29 +13,28 @@ Table des matières
 
 # Présentation
 
-Zoo Manager est un jeu au tour par tour. Chaque tour représente "un mois". Vous devez gérer vos animaux, votre nourriture, vos habitats et votre budget pour faire prospérer votre zoo.
+ZooTopie est un jeu au tour par tour. Chaque tour représente un mois. Vous devez gérer vos animaux, votre nourriture, vos habitats et votre budget pour faire évoluer votre zoo.
 
-démarer le jeu: exécuter la commande "dotnet run" dans le dossier root du jeu
+Démarer le jeu: exécuter la commande "dotnet run" dans le dossier root du jeu
 
-# Animaux
-
+# Animaux disponibles
 
 Tigre
 Aigle
 Poule
 
-La saison "haute" s'étend de "mai à septembre", la saison "basse" le reste de l'année.
+La haute saison s'étend de mai à septembre, la basses saison représente le reste de l'année.
 
 # Reproduction
 
-Un animal peut se reproduire : uniquement si :
+Un animal peut se reproduire uniquement si :
 
-- Il y a assez d'espace dans l'habitat pour lui et le futur jeune.
+- Il y a assez d'espace dans l'habitat pour lui et la futur naissance.
 - Il n'est pas malade.
 
 # Maladies
 
-Chaque mois, un individu peut tomber malade selon sa probabilité annuelle (divisée par 12 pour le calcul mensuel).
+Chaque mois, un animal peut tomber malade selon sa probabilité annuelle (divisée par 12 pour le calcul mensuel).
 
 | Animal | Probabilité (par an) | Durée de maladie | Variation durée |
 |--------|----------------------|-----------------|-----------------|
@@ -46,13 +43,13 @@ Chaque mois, un individu peut tomber malade selon sa probabilité annuelle (divi
 | Poule  | 5%                   | 5 jours         | ± 20%           |
 
 - Taux de mortalité lors d'une maladie : 10%
-- Un animal malade "ne se reproduit pas"
+- Un animal malade ne se reproduit pas
 
-## Habitats
+# Habitats
 
-Les habitats ont une capacité limitée. Si la population dépasse la capacité, un événement de "surpopulation" est déclenché.
+Les habitats ont une capacité limitée. Si la population dépasse la capacité, un événement de surpopulation est déclenché.
 
-### Actions possibles sur les habitats
+# Actions possibles sur les habitats
 
 - Acheter un habitat
 - Vendre un habitat
@@ -66,7 +63,7 @@ Les habitats ont une capacité limitée. Si la population dépasse la capacité,
 | Adulte    | 17 € |
 | Enfant    | 13 € |
 
-# Topologie type d'un groupe de visiteurs
+# Un groupe de visiteurs
 
 2 adultes + 2 enfants → 34 € + 26 € = 60 € par groupe
 
@@ -85,14 +82,14 @@ Le nombre de visiteurs dépend du nombre d'animaux par espèce et de la saison. 
 | Aigle  | 2 190 €                      |
 | Tigre  | 43 800 €                     |
 
-Les subventions sont versées "annuellement", proportionnellement au nombre d'individus vivants.
+Les subventions sont versées annuellement, proportionnellement au nombre d'individus vivants.
 
 # Événements
 
 # Événements réguliers (chaque mois)
 
 | Événement        | Déclencheur                          |
-|-----------------|--------------------------------------|
+|------------------|--------------------------------------|
 | Grossesse        | Conditions de reproduction réunies   |
 | Naissance        | Après une grossesse                  |
 | Mort infantile   | Probabilité à la naissance           |
@@ -103,9 +100,9 @@ Les subventions sont versées "annuellement", proportionnellement au nombre d'in
 # Événements exceptionnels (probabilité mensuelle)
 
 | Événement      | Probabilité | Conséquence                    |
-|---------------|-------------|-------------------------------|
-| Incendie       | 1%          | Perte d'1 habitat              |
-| Vol            | 1%          | Perte d'1 spécimen             |
+|--------------- |-------------|------------------------------- |
+| Incendie       | 1%          | Perte d'un habitat             |
+| Vol            | 1%          | Perte d'un spécimen            |
 | Nuisibles      | 20%         | Perte de 10% des graines       |
 | Viande avariée | 10%         | Perte de 20% de la viande      |
 
@@ -117,27 +114,6 @@ Les subventions sont versées "annuellement", proportionnellement au nombre d'in
 - Achat de nourriture (viande, graines)
 - Achat / vente d'un habitat
 - Passer au tour suivant
-
-# Architecture
-
-Le projet suit une architecture orientée objet avec les classes principales suivantes :
-
-Zoo
-├── Budget
-├── Tarif
-├── StockNourriture
-├── Saison (enum)
-├── List<Animal>
-│   ├── Tigre
-│   ├── Aigle
-│   └── Poule
-├── List<Habitat>
-├── List<Evenement>
-│   ├── EvenementMaladie
-│   ├── EvenementVol
-│   ├── EvenementIncendie
-│   └── EvenementNuisibles
-└── GestionnaireSave
 
 # Sauvegarde
 
